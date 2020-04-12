@@ -69,7 +69,12 @@ inquirer.prompt([
             throw err;
         }
     });
-    fs.appendFile("README.md", "## Installation" + "\n" + answers.installation + "\n", function(err) {
+    fs.appendFile("README.md", "## Installation", function(err) {
+        if (err) {
+            throw err;
+        }
+    });
+    fs.appendFile("README.md", "<br />" + answers.installation, function(err) {
         if (err) {
             throw err;
         }
