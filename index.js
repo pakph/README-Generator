@@ -69,5 +69,10 @@ inquirer.prompt([
             throw err;
         }
     });
+    fs.appendFile("README.md", answers.installation + "\n", function(err) {
+        if (err) {
+            throw err;
+        }
+    })
 
 })
