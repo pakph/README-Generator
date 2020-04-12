@@ -59,7 +59,7 @@ inquirer.prompt([
     });
 
     //Creates a ReadMe file with the title
-    fs.writeFile("README.md", "##" + answers.title + "\n", function(err) {
+    fs.writeFile("README.md", "## " + answers.title + "\n", function(err) {
         if (err) {
             throw err;
         }
