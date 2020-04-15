@@ -3,7 +3,7 @@ This README Generator will help you make a README for your repositories. Simply 
 ## Installation
 > npm i inquirer
 ## Usage
-node index.js
+Run: node index.js
 ## License
 
 ## Contributing
@@ -11,4 +11,4 @@ node index.js
 ## Test
 
 ## Questions
-Reach out to me here:<br />![pakph](https://avatars2.githubusercontent.com/u/59977843?v=4 =48x48)<br />pakphil7@gmail.com
+Reach out to me here: /n![pakph](https://avatars2.githubusercontent.com/u/59977843?v=4 | width =48) /npakphil7@gmail.com
