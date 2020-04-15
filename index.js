@@ -26,7 +26,7 @@ inquirer.prompt([
     {
         type: "input",
         name: "installation",
-        message: "What are the steps to install your project?",
+        message: "Enter the command line to install the necessary npm: ",
     },
     {
         type: "input",
@@ -54,30 +54,104 @@ inquirer.prompt([
     const queryUrl = "https://api.github.com/users/" + answers.username;
 
     axios.get(queryUrl).then(function(res) {
-        const userPage = res.data.html_url
-        console.log (userPage)
+        const userPage = res.data.html_url;
+        const userAvatar = res.data.avatar_url;
+        const userId = res.data.login;
+
+        //Creates a ReadMe file with the title
+    fs.writeFileSync("README.md", "# " + answers.title + "\n", function(err) {
+        if (err) {
+            throw err;
+        }
     });
 
-    //Creates a ReadMe file with the title
-    fs.writeFile("README.md", "# " + answers.title + "\n", function(err) {
+    //Adds the Desciption Section
+    fs.appendFileSync("README.md", answers.description + "\n", function(err) {
         if (err) {
             throw err;
         }
     });
-    fs.appendFile("README.md", answers.description + "\n", function(err) {
-        if (err) {
-            throw err;
-        }
-    });
-    fs.appendFile("README.md", "## Installation", function(err) {
-        if (err) {
-            throw err;
-        }
-    });
-    fs.appendFile("README.md", "<br />" + answers.installation, function(err) {
-        if (err) {
-            throw err;
-        }
-    })
 
+    //Adds the Installation Section
+    fs.appendFileSync("README.md", "## Installation\n", function(err) {
+        if (err) {
+            throw err;
+        }
+    });
+    fs.appendFileSync("README.md", "`<addr>` " + answers.installation + "\n", function(err) {
+        if (err) {
+            throw err;
+        }
+    });
+
+    //Adds the Usage Section
+    fs.appendFileSync("README.md", "## Usage\n", function(err) {
+        if (err) {
+            throw err;
+        }
+    });
+    fs.appendFileSync("README.md", answers.usage + "\n", function(err) {
+        if (err) {
+            throw err;
+        }
+    });
+
+    //Adds the License Section
+    fs.appendFileSync("README.md", "## License\n", function(err) {
+        if (err) {
+            throw err;
+        }
+    });
+    fs.appendFileSync("README.md", answers.license + "\n", function(err) {
+        if (err) {
+            throw err;
+        }
+    });
+
+    //Adds the Contributing Section
+    fs.appendFileSync("README.md", "## Contributing\n", function(err) {
+        if (err) {
+            throw err;
+        }
+    });
+    fs.appendFileSync("README.md", answers.contributing + "\n", function(err) {
+        if (err) {
+            throw err;
+        }
+    });
+
+    //Adds the Test Section
+    fs.appendFileSync("README.md", "## Test\n", function(err) {
+        if (err) {
+            throw err;
+        }
+    });
+    fs.appendFileSync("README.md", answers.test + "\n", function(err) {
+        if (err) {
+            throw err;
+        }
+    });
+    fs.appendFileSync("README.md", "## Questions\n", function(err) {
+        if (err) {
+            throw err;
+        }
+    });
+    fs.appendFileSync("README.md", "Reach out to me here:\n", function(err) {
+        if (err) {
+            throw err;
+        }
+    });
+    fs.appendFileSync("README.md", "![" + userId +"](" + userAvatar + ")" + "\n", function(err) {
+        if (err) {
+            throw err;
+        }
+    });
+    fs.appendFileSync("README.md", answers.email, function(err) {
+        if (err) {
+            throw err;
+        }
+    });
+
+    });
+  
 })
