@@ -57,9 +57,9 @@ inquirer.prompt([
         const userPage = res.data.html_url;
         const userAvatar = res.data.avatar_url;
         const userId = res.data.login;
-
+ 
         //Creates a ReadMe file with the title
-    fs.writeFileSync("README.md", "# " + answers.title + "\n", function(err) {
+    fs.writeFileSync("README.md", "# " + answers.title + " ![version 0.0.0](https://img.shields.io/badge/version-0.0.0-blue)\n", function(err) {
         if (err) {
             throw err;
         }
@@ -72,13 +72,50 @@ inquirer.prompt([
         }
     });
 
+    //Adds the Table of Content
+    fs.appendFileSync("README.md", "## Table of Contents" + "\n", function(err) {
+        if (err) {
+            throw err;
+        }
+    });
+    fs.appendFileSync("README.md", "[Installation](#installation)" + "<br />", function(err) {
+        if (err) {
+            throw err;
+        }
+    });
+    fs.appendFileSync("README.md", "[Usage](#usage)" + "<br />", function(err) {
+        if (err) {
+            throw err;
+        }
+    });
+    fs.appendFileSync("README.md", "[License](#license)" + "<br />", function(err) {
+        if (err) {
+            throw err;
+        }
+    });
+    fs.appendFileSync("README.md", "[Contributors](#contributors)" + "<br />", function(err) {
+        if (err) {
+            throw err;
+        }
+    });
+    fs.appendFileSync("README.md", "[Test](#test)" + "<br />", function(err) {
+        if (err) {
+            throw err;
+        }
+    });
+    fs.appendFileSync("README.md", "[Questions](#questions)" + "\n", function(err) {
+        if (err) {
+            throw err;
+        }
+    });
+
     //Adds the Installation Section
     fs.appendFileSync("README.md", "## Installation\n", function(err) {
         if (err) {
             throw err;
         }
     });
-    fs.appendFileSync("README.md", "`<addr>` " + answers.installation + "\n", function(err) {
+    fs.appendFileSync("README.md", "> " + answers.installation + "\n", function(err) {
         if (err) {
             throw err;
         }
@@ -109,7 +146,7 @@ inquirer.prompt([
     });
 
     //Adds the Contributing Section
-    fs.appendFileSync("README.md", "## Contributing\n", function(err) {
+    fs.appendFileSync("README.md", "## Contributors\n", function(err) {
         if (err) {
             throw err;
         }
@@ -136,12 +173,12 @@ inquirer.prompt([
             throw err;
         }
     });
-    fs.appendFileSync("README.md", "Reach out to me here:\n", function(err) {
+    fs.appendFileSync("README.md", "Reach out to me here:" + "\n", function(err) {
         if (err) {
             throw err;
         }
     });
-    fs.appendFileSync("README.md", "![" + userId +"](" + userAvatar + ")" + "\n", function(err) {
+    fs.appendFileSync("README.md", "![" + userId + "](" + userAvatar + ")" + "\n", function(err) {
         if (err) {
             throw err;
         }
@@ -155,3 +192,4 @@ inquirer.prompt([
     });
   
 })
+
